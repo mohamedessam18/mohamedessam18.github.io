@@ -5,6 +5,7 @@ export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
+  const [message, setMessage] = useState("");
 
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -48,11 +49,15 @@ export default function ContactForm() {
           required
         />
 
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          required
-        />
+<textarea
+  name="message"
+  value={message}
+  onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
+  placeholder="Tell me about your project..."
+  required
+  rows={5}
+  className="form-input resize-none bg-dark-200 border border-dark-300 rounded-lg p-3 text-gray-200 placeholder-gray-500 focus:ring-2 focus:ring-matrix focus:border-matrix transition-all"
+/>
 
         <button type="submit" disabled={loading}>
           {loading ? "Sending..." : "Send"}
