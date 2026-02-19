@@ -20,9 +20,8 @@ import {
   Shield,
   Lock
 } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+
+import ContactForm from "./ContactForm";
 
 // Matrix Rain Background Component
 const MatrixRain = () => {
@@ -602,7 +601,7 @@ const ProjectsSection = () => {
                   {project.icon}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-matrix transition-colors pr-24">
+                  <h3 className="text-lg font-seِِِmibold text-white mb-2 group-hover:text-matrix transition-colors pr-24">
                     {project.title}
                   </h3>
                   <p className="text-gray-400 text-sm leading-relaxed">
@@ -727,30 +726,8 @@ const GitHubSection = () => {
 };
 
 // Contact Section
+// Contact Section
 const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-    
-    // Reset success message after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
-  };
-
   const socialLinks = [
     {
       name: 'GitHub',
@@ -873,71 +850,8 @@ const ContactSection = () => {
 
           {/* Right Column - Contact Form */}
           <div className="p-8 rounded-lg border border-dark-300 bg-dark-100/50">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm text-gray-400 mb-2 font-mono">
-                  <span className="text-matrix">$</span> name
-                </label>
-                <Input
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Enter your name"
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm text-gray-400 mb-2 font-mono">
-                  <span className="text-matrix">$</span> email
-                </label>
-                <Input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="Enter your email"
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm text-gray-400 mb-2 font-mono">
-                  <span className="text-matrix">$</span> message
-                </label>
-                <Textarea
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell me about your project..."
-                  required
-                  rows={5}
-                  className="form-input resize-none"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full btn-primary flex items-center justify-center gap-2 disabled:opacity-50"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin" />
-                    Sending...
-                  </>
-                ) : isSubmitted ? (
-                  <>
-                    Message Sent!
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-4 h-4" />
-                    Send Message
-                  </>
-                )}
-              </Button>
-            </form>
+            {/* Replace old form with new ContactForm component */}
+            <ContactForm />
           </div>
         </div>
       </div>
