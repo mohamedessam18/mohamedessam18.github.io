@@ -7,6 +7,11 @@ export default function ContactForm() {
   const [status, setStatus] = useState<string | null>(null);
   const [message, setMessage] = useState("");
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+  });
+
   const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formRef.current) return;
@@ -35,19 +40,38 @@ export default function ContactForm() {
   return (
     <div style={{ maxWidth: "400px", margin: "auto" }}>
       <form ref={formRef} onSubmit={sendEmail}>
-        <input
-          type="text"
-          name="user_name"
-          placeholder="Your Name"
-          required
-        />
+         {/* Name Field */}
+    <div>
+      <label className="block text-sm text-gray-400 mb-2 font-mono">
+        <span className="text-matrix">$</span> name
+      </label>
+      <input
+        type="text"
+        value={formData.name}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, name: e.target.value })}
+        placeholder="Enter your name"
+        required
+        className="w-full bg-dark-200 border border-dark-300 rounded-lg p-3 text-gray-200 placeholder-gray-500 focus:ring-2 focus:ring-matrix focus:border-matrix transition-all"
+        name="name"
+      />
+    </div>
 
-        <input
-          type="email"
-          name="user_email"
-          placeholder="Your Email"
-          required
-        />
+    {/* Email Field */}
+    <div>
+      <label className="block text-sm text-gray-400 mb-2 font-mono">
+        <span className="text-matrix">$</span> email
+      </label>
+      <input
+        type="email"
+        value={formData.email}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormData({ ...formData, email: e.target.value })}
+        placeholder="Enter your email"
+        required
+        className="w-full bg-dark-200 border border-dark-300 rounded-lg p-3 text-gray-200 placeholder-gray-500 focus:ring-2 focus:ring-matrix focus:border-matrix transition-all"
+        name="email"
+      />
+    </div>
+
 
 <textarea
   name="message"
