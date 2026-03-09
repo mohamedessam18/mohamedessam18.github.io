@@ -2,6 +2,7 @@ import { useState, type FormEvent, type ChangeEvent } from 'react';
 import { getTranslation } from '../i18n';
 import type { Language } from '../i18n';
 import { Github, Linkedin, Mail, Send, User, AtSign } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 interface ContactProps {
   language: Language;
@@ -18,19 +19,28 @@ const Contact = ({ language }: ContactProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      setFormData({ name: '', email: '' });
-      
-      // Reset success message after 3 seconds
-      setTimeout(() => setSubmitted(false), 3000);
-    }, 1000);
+
+    const { error } = await supabase.from('contact_messages').insert([
+      {
+        name: formData.name,
+        email: formData.email,
+      },
+    ]);
+
+    setIsSubmitting(false);
+
+    if (error) {
+      alert('Something went wrong. Please try again.');
+      return;
+    }
+
+    setSubmitted(true);
+    setFormData({ name: '', email: '' });
+
+    setTimeout(() => setSubmitted(false), 3000);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -188,9 +198,10 @@ const Contact = ({ language }: ContactProps) => {
             mohvmedesam@gmail.com
           </a>
         </div>
+
         <div className="mt-6 text-center">
           <a
-           href="/mohamed%20essam.pdf"
+            href="/mohamed%20essam.pdf"
             download
             className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-mono transition-all duration-300
               dark:bg-cyan-500/10 dark:border dark:border-cyan-500/50 dark:text-cyan-400 
@@ -201,7 +212,6 @@ const Contact = ({ language }: ContactProps) => {
             Download CV
           </a>
         </div>
-        
       </div>
     </div>
   );
