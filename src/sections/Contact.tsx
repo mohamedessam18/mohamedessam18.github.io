@@ -188,6 +188,20 @@ const Contact = ({ language }: ContactProps) => {
             mohvmedesam@gmail.com
           </a>
         </div>
+        <div className="mt-6 text-center">
+          <a
+           href="/mohamed%20essam.pdf"
+            download
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-mono transition-all duration-300
+              dark:bg-cyan-500/10 dark:border dark:border-cyan-500/50 dark:text-cyan-400 
+              dark:hover:bg-cyan-500/20 dark:hover:border-cyan-400 dark:hover:shadow-lg dark:hover:shadow-cyan-500/20
+              light:bg-cyan-600/10 light:border light:border-cyan-500/40 light:text-cyan-700
+              light:hover:bg-cyan-600/20 light:hover:border-cyan-500/60 light:hover:shadow-md light:hover:shadow-cyan-500/10"
+          >
+            Download CV
+          </a>
+        </div>
+        
       </div>
     </div>
   );
