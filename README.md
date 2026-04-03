@@ -12,11 +12,15 @@
 
 Showcasing skills, projects, services, and contact details in a modern single-page experience with theme switching, animated visuals, and Supabase-powered form handling.
 
+**Status:** Proprietary personal portfolio. Source code is not open for reuse, redistribution, or commercial use without explicit written permission.
+
 </div>
 
 ## Overview
 
 This project is a personal portfolio website for **Mohamed Essam**, focused on presenting his work as a **Flutter Developer and Software Developer student**.
+
+This repository is maintained as a **private intellectual property project in licensing terms**, even if the source is visible online. Viewing the code does not grant permission to copy, modify, redistribute, or republish it.
 
 The site is designed as a smooth single-page experience with section-based navigation and a strong visual identity. It highlights:
 
@@ -99,6 +103,8 @@ Visit the live site here:
 git clone https://github.com/mohamedessam18/mohamedessam18.github.io.git
 cd mohamedessam18.github.io
 ```
+
+This setup is intended for the project owner or explicitly authorized collaborators only.
 
 ### 2. Install dependencies
 
@@ -205,4 +211,8 @@ This is not a default Vite starter anymore. The project is now documented as a r
 
 ## License
 
-This project is for personal portfolio use unless Mohamed Essam specifies otherwise.
+This project is **not open source**.
+
+All rights are reserved by **Mohamed Essam**. No part of this source code, design, content, or assets may be copied, modified, distributed, sublicensed, published, used commercially, or reused in derivative works without prior written permission.
+
+See [LICENSE](LICENSE) for the full terms.

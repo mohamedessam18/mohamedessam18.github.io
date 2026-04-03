@@ -1,4 +1,5 @@
 import { Sun, Moon, Github } from 'lucide-react';
+import { useState } from 'react';
 import { getTranslation } from '../i18n';
 import type { Language } from '../i18n';
 import type { Theme } from '../hooks/useTheme';
@@ -20,6 +21,7 @@ const Navbar = ({
   theme,
   toggleTheme,
 }: NavbarProps) => {
+  const [isLogoHovered, setIsLogoHovered] = useState(false);
   const navItems = ['home', 'about', 'skills', 'help', 'projects', 'contact'];
 
   return (
@@ -32,11 +34,51 @@ const Navbar = ({
           {/* Logo / Name - Left */}
           <button
             onClick={() => setActiveSection('home')}
-            className="font-mono text-lg font-bold transition-colors
-              dark:text-cyan-400 dark:hover:text-cyan-300
-              light:text-cyan-600 light:hover:text-cyan-700"
+            onMouseEnter={() => setIsLogoHovered(true)}
+            onMouseLeave={() => setIsLogoHovered(false)}
+            onFocus={() => setIsLogoHovered(true)}
+            onBlur={() => setIsLogoHovered(false)}
+            className="group flex h-10 w-[15ch] items-center font-mono text-lg font-bold transition-colors"
+            aria-label="Go to home"
           >
-            &lt;ME/&gt;
+            <span className="relative inline-flex h-8 w-full items-center overflow-hidden whitespace-nowrap">
+              <span
+                className={`pointer-events-none absolute left-0 top-1/2 flex -translate-y-1/2 items-center transition-all [transition-duration:400ms] ease-out ${
+                  isLogoHovered ? '-translate-x-2 opacity-0' : 'translate-x-0 opacity-100'
+                }`}
+              >
+                <span className="text-emerald-400 text-glow-green">&gt; _</span>
+              </span>
+
+              <span className="absolute inset-0 flex items-center">
+                <span
+                  className={`pointer-events-none absolute left-[3ch] top-1/2 -translate-y-1/2 transition-all [transition-duration:400ms] ease-out ${
+                    isLogoHovered ? 'translate-x-0 text-emerald-400 text-glow-green' : 'translate-x-0 text-white'
+                  }`}
+                >
+                  <span
+                    className={`absolute left-0 top-1/2 -translate-y-1/2 transition-all [transition-duration:400ms] ease-out ${
+                      isLogoHovered ? 'opacity-0' : 'opacity-100'
+                    }`}
+                  >
+                    me
+                  </span>
+                  <span
+                    className={`absolute left-0 top-1/2 -translate-y-1/2 transition-all [transition-duration:400ms] ease-out ${
+                      isLogoHovered ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  >
+                    Mohamed Essam
+                  </span>
+                </span>
+              </span>
+
+              <span
+                className={`pointer-events-none absolute left-[5.5ch] top-1/2 h-[1.05em] w-[0.72ch] -translate-y-1/2 rounded-[1px] bg-cyan-400 shadow-[0_0_10px_#22d3ee] terminal-cursor-blink transition-all [transition-duration:400ms] ease-out ${
+                  isLogoHovered ? 'translate-x-2 opacity-0' : 'translate-x-0 opacity-100'
+                }`}
+              />
+            </span>
           </button>
 
           {/* Navigation Links - Center */}
