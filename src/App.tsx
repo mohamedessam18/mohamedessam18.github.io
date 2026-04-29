@@ -1,7 +1,6 @@
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { useLanguage } from './hooks/useLanguage';
 import { useTheme } from './hooks/useTheme';
-import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import SectionContainer from './components/SectionContainer';
 import Home from './sections/Home';
@@ -24,8 +23,6 @@ function App() {
 
   return (
     <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-[#f8f7f4]'}`}>
-      <CustomCursor />
-
       {/* Main Content Area - Single Section View */}
       {/* Add bottom padding to account for fixed bottom navbar */}
       <main className="relative min-h-screen pb-24 md:pb-20">
