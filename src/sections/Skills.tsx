@@ -1,15 +1,22 @@
 import { getTranslation } from '../i18n';
 import type { Language } from '../i18n';
+import type { ElementType } from 'react';
 import {
   Smartphone,
   Code,
   Cpu,
   Brain,
-  MessageCircle,
-  Users,
-  Heart,
+  Database,
+  Layers,
   Shield,
   Terminal,
+  Globe,
+  Braces,
+  Paintbrush,
+  GitBranch,
+  Server,
+  Rocket,
+  TestTube,
 } from 'lucide-react';
 
 interface SkillsProps {
@@ -18,41 +25,65 @@ interface SkillsProps {
 
 interface SkillCategory {
   title: string;
-  skills: { name: string; icon: React.ElementType }[];
-  color: 'cyan' | 'green' | 'purple';
+  summary: string;
+  skills: { name: string; icon: ElementType }[];
+  color: 'cyan' | 'green' | 'purple' | 'blue';
 }
 
 const Skills = ({ language }: SkillsProps) => {
   const t = (key: string) => getTranslation(language, key);
 
-  const coreSkills = t('skills.core') as string[];
-  const supportingSkills = t('skills.supporting') as string[];
-  const softSkills = t('skills.soft') as string[];
-
   const skillCategories: SkillCategory[] = [
     {
-      title: t('skills.coreSkills') as string,
-      skills: coreSkills.map((skill, i) => ({
-        name: skill,
-        icon: [Smartphone, Code, Smartphone][i],
-      })),
+      title: 'Web Skills',
+      summary: 'Frontend foundations and React experience for modern web interfaces.',
+      skills: [
+        { name: 'HTML', icon: Globe },
+        { name: 'CSS', icon: Paintbrush },
+        { name: 'JavaScript', icon: Braces },
+        { name: 'Experience with React', icon: Code },
+      ],
       color: 'cyan',
     },
     {
-      title: t('skills.supportingSkills') as string,
-      skills: supportingSkills.map((skill, i) => ({
-        name: skill,
-        icon: [Cpu, Code, Brain][i],
-      })),
+      title: 'Flutter Skills',
+      summary: 'Dart, widgets, state management, architecture, backend integration, testing, and deployment.',
+      skills: [
+        { name: 'Dart, OOP, mixins, interfaces, null safety', icon: Code },
+        { name: 'Future, async/await, and Streams', icon: GitBranch },
+        { name: 'Functional collection methods: map, where, fold', icon: Braces },
+        { name: 'Rows, Columns, Stack, Container, Flex, responsive UI', icon: Layers },
+        { name: 'Material, Cupertino, CustomPainter, Canvas', icon: Paintbrush },
+        { name: 'Provider, Riverpod, BLoC, GetX, Signals', icon: Brain },
+        { name: 'Clean Architecture, MVVM, Repository Pattern', icon: Cpu },
+        { name: 'REST APIs with Dio/http and JSON serialization', icon: Server },
+        { name: 'SQLite, Hive, Isar, Firebase, Supabase', icon: Database },
+        { name: 'Animations, Platform Channels, packages, profiling', icon: Smartphone },
+        { name: 'CI/CD, app store releases, unit and widget testing', icon: Rocket },
+      ],
       color: 'green',
     },
     {
-      title: t('skills.softSkills') as string,
-      skills: softSkills.map((skill, i) => ({
-        name: skill,
-        icon: [MessageCircle, Users, Heart][i],
-      })),
+      title: 'Database and Structures',
+      summary: 'Strong CS fundamentals for data modeling and efficient problem solving.',
+      skills: [
+        { name: 'Database systems and data modeling', icon: Database },
+        { name: 'Data structures using C++', icon: Cpu },
+        { name: 'Data structures using Dart', icon: Code },
+        { name: 'Algorithms and problem solving', icon: Brain },
+      ],
       color: 'purple',
+    },
+    {
+      title: 'Development Practice',
+      summary: 'The supporting workflow skills that keep projects maintainable.',
+      skills: [
+        { name: 'Git and GitHub project workflow', icon: GitBranch },
+        { name: 'Debugging and performance profiling', icon: Terminal },
+        { name: 'Testing business logic and UI behavior', icon: TestTube },
+        { name: 'Clean, maintainable software development', icon: Shield },
+      ],
+      color: 'blue',
     },
   ];
 
@@ -99,6 +130,20 @@ const Skills = ({ language }: SkillsProps) => {
         hover: 'hover:border-violet-400/60 hover:bg-violet-100/70',
       },
     },
+    blue: {
+      dark: {
+        bg: 'bg-blue-500/10',
+        border: 'border-blue-500/30',
+        text: 'text-blue-400',
+        hover: 'hover:border-blue-500/50 hover:bg-blue-500/20',
+      },
+      light: {
+        bg: 'bg-blue-50/70',
+        border: 'border-blue-300/40',
+        text: 'text-blue-700',
+        hover: 'hover:border-blue-400/60 hover:bg-blue-100/70',
+      },
+    },
   };
 
   return (
@@ -113,7 +158,7 @@ const Skills = ({ language }: SkillsProps) => {
         </h2>
 
         {/* Skills Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid lg:grid-cols-2 gap-6">
           {skillCategories.map((category, catIndex) => {
             const darkColors = colorClasses[category.color].dark;
             const lightColors = colorClasses[category.color].light;
@@ -128,7 +173,10 @@ const Skills = ({ language }: SkillsProps) => {
                   dark:${darkColors.text} light:${lightColors.text}`}>
                   {category.title}
                 </h3>
-                <div className="space-y-3">
+                <p className="mb-5 text-sm leading-relaxed dark:text-gray-400 light:text-slate-600">
+                  {category.summary}
+                </p>
+                <div className="grid sm:grid-cols-2 gap-3">
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
@@ -158,7 +206,7 @@ const Skills = ({ language }: SkillsProps) => {
           </h3>
           <p className="flex items-center gap-2 dark:text-gray-400 light:text-slate-600">
             <Terminal size={18} className="dark:text-green-400 light:text-emerald-600" />
-            {t('skills.additionalText') as string}
+            Web, Flutter, databases, data structures, and deployment knowledge shaped through university work and personal projects.
           </p>
         </div>
       </div>

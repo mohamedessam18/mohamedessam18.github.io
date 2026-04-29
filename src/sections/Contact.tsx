@@ -1,7 +1,7 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
 import { getTranslation } from '../i18n';
 import type { Language } from '../i18n';
-import { Github, Linkedin, Mail, Send, User, AtSign } from 'lucide-react';
+import { Github, Linkedin, Mail, Send, User, AtSign, Instagram, MessageCircle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 interface ContactProps {
@@ -68,6 +68,20 @@ const Contact = ({ language }: ContactProps) => {
       icon: Mail,
       darkColor: 'dark:text-gray-400 dark:hover:text-green-400 dark:hover:border-green-500',
       lightColor: 'light:text-slate-600 light:hover:text-emerald-600 light:hover:border-emerald-400',
+    },
+    {
+      name: 'Telegram',
+      url: 'https://t.me/mohvmedesam20',
+      icon: MessageCircle,
+      darkColor: 'dark:text-gray-400 dark:hover:text-sky-400 dark:hover:border-sky-500',
+      lightColor: 'light:text-slate-600 light:hover:text-sky-600 light:hover:border-sky-400',
+    },
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/mohvmedesam20',
+      icon: Instagram,
+      darkColor: 'dark:text-gray-400 dark:hover:text-pink-400 dark:hover:border-pink-500',
+      lightColor: 'light:text-slate-600 light:hover:text-pink-600 light:hover:border-pink-400',
     },
   ];
 
@@ -168,7 +182,7 @@ const Contact = ({ language }: ContactProps) => {
         </form>
 
         {/* Contact Links */}
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
           {contactLinks.map((link, index) => (
             <a
               key={index}

@@ -17,30 +17,41 @@ interface Project {
 const Projects = ({ language }: ProjectsProps) => {
   const t = (key: string) => getTranslation(language, key);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const projectItems = t('projects.items') as unknown as { title: string; description: string }[];
-
   const projects: Project[] = [
     {
-      title: projectItems[0].title,
-      description: projectItems[0].description,
-      github: 'https://github.com/mohamedessam18/Cyber-Task-Manager',
-      tech: ['Flutter', 'Dart', 'State Management'],
+      title: 'Numerical Analysis Calc',
+      description: 'A clean calculator workspace for numerical analysis methods, root-finding algorithms, linear algebra methods, iteration tables, saved examples, history, and graph output.',
+      github: 'https://github.com/mohamedessam18/numerecal2',
+      tech: ['Next.js', 'React', 'Math.js'],
       color: 'cyan',
     },
     {
-      title: projectItems[1].title,
-      description: projectItems[1].description,
-      github: 'https://github.com/mohamedessam18/Expense-Tracker',
-      tech: ['Flutter', 'Dart', 'Charts'],
+      title: 'Expense Tracker',
+      description: 'A local-first personal finance web app for managing income and expenses with multi-page workflows, persistent storage, analytics-focused views, and a polished fintech UI.',
+      github: 'https://github.com/mohamedessam18/Expence-Tracker',
+      tech: ['HTML', 'CSS', 'JavaScript'],
       color: 'green',
     },
     {
-      title: projectItems[2].title,
-      description: projectItems[2].description,
-      github: 'https://github.com/mohamedessam18/Library-System',
-      tech: ['Flutter', 'Dart', 'Database'],
+      title: 'Quran Ayah Generator',
+      description: 'A multilingual Quran experience where users generate random ayahs, hear a random reciter, save loved ayahs, replay favorites, generate again, and translate ayahs into Arabic, English, Spanish, or Indonesian.',
+      github: 'https://github.com/mohamedessam18/QURAN-AYAH',
+      tech: ['React', 'TypeScript', 'Vite'],
       color: 'purple',
+    },
+    {
+      title: 'Bank System',
+      description: 'A banking system project with a live frontend and a Visual Studio desktop project, focused on account and transaction workflows with a fintech-style presentation.',
+      github: 'https://github.com/mohamedessam18/BankSystem',
+      tech: ['C++', 'OOP', 'Frontend'],
+      color: 'cyan',
+    },
+    {
+      title: 'Library System',
+      description: 'A library management system simulation for adding, updating, removing, borrowing, returning, and displaying books through core data-management operations.',
+      github: 'https://github.com/mohamedessam18/Library-System',
+      tech: ['C++', 'Data Structures', 'CRUD'],
+      color: 'green',
     },
   ];
 
@@ -113,7 +124,7 @@ const Projects = ({ language }: ProjectsProps) => {
         </h2>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
           {projects.map((project, index) => {
             const darkColors = colorClasses[project.color].dark;
             const lightColors = colorClasses[project.color].light;
@@ -159,7 +170,7 @@ const Projects = ({ language }: ProjectsProps) => {
                   light:text-slate-800 light:group-hover:text-cyan-700`}>
                   {project.title}
                 </h3>
-                <p className="text-sm mb-4 line-clamp-3
+                <p className="text-sm mb-4 leading-relaxed
                   dark:text-gray-400 light:text-slate-600">
                   {project.description}
                 </p>

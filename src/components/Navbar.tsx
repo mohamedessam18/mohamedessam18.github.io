@@ -2,6 +2,8 @@ import { Sun, Moon, Github } from 'lucide-react';
 import { getTranslation } from '../i18n';
 import type { Language } from '../i18n';
 import type { Theme } from '../hooks/useTheme';
+import logoDark from '../assets/me logo.png';
+import logoLight from '../assets/me-logo-light.png';
 
 interface NavbarProps {
   activeSection: string;
@@ -20,7 +22,7 @@ const Navbar = ({
   theme,
   toggleTheme,
 }: NavbarProps) => {
-  const navItems = ['home', 'about', 'skills', 'help', 'projects', 'contact'];
+  const navItems = ['home', 'about', 'skills', 'education', 'help', 'projects', 'contact'];
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 backdrop-blur-md border-t transition-colors duration-300
@@ -29,13 +31,23 @@ const Navbar = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between h-16">
-          {/* Logo / Name - Left */}
+          {/* Logo - Left */}
           <button
             onClick={() => setActiveSection('home')}
-            className="flex h-10 w-[15ch] items-center font-mono text-lg font-bold text-emerald-400 text-glow-green transition-colors"
+            className="flex h-11 w-[92px] items-center justify-start rounded-md transition-all
+              dark:hover:bg-cyan-500/10 light:hover:bg-cyan-50/70"
             aria-label="Go to home"
           >
-            Mohamed Essam
+            <img
+              src={logoDark}
+              alt="Mohamed Essam logo"
+              className="hidden h-10 w-10 rounded-full object-cover dark:block"
+            />
+            <img
+              src={logoLight}
+              alt="Mohamed Essam logo"
+              className="h-10 w-10 object-contain dark:hidden"
+            />
           </button>
 
           {/* Navigation Links - Center */}
@@ -44,7 +56,7 @@ const Navbar = ({
               <button
                 key={item}
                 onClick={() => setActiveSection(item)}
-                className={`px-3 py-2 rounded-md text-sm font-mono transition-all duration-300 ${
+                className={`px-2 lg:px-3 py-2 rounded-md text-xs lg:text-sm font-mono transition-all duration-300 ${
                   activeSection === item
                     ? 'dark:text-cyan-400 dark:bg-cyan-500/10 dark:border dark:border-cyan-500/30 light:text-cyan-700 light:bg-cyan-100/60 light:border light:border-cyan-400/40'
                     : 'dark:text-gray-400 dark:hover:text-cyan-300 dark:hover:bg-cyan-500/5 light:text-slate-600 light:hover:text-cyan-600 light:hover:bg-cyan-50/50'
@@ -97,12 +109,12 @@ const Navbar = ({
         {/* Mobile Layout - Bottom Navigation Bar */}
         <div className="md:hidden">
           {/* Main Nav Items */}
-          <div className="flex items-center justify-around py-2">
-            {navItems.slice(0, 5).map((item) => (
+          <div className="flex items-center gap-2 overflow-x-auto px-1 py-2">
+            {navItems.map((item) => (
               <button
                 key={item}
                 onClick={() => setActiveSection(item)}
-                className={`flex flex-col items-center gap-1 px-2 py-1 rounded-lg transition-all duration-300 ${
+                className={`flex min-w-[64px] flex-col items-center gap-1 px-2 py-1 rounded-lg transition-all duration-300 ${
                   activeSection === item
                     ? 'dark:text-cyan-400 light:text-cyan-700'
                     : 'dark:text-gray-500 dark:hover:text-gray-300 light:text-slate-500 light:hover:text-slate-700'
@@ -119,25 +131,6 @@ const Navbar = ({
                 </span>
               </button>
             ))}
-            
-            {/* More button for Contact + Controls */}
-            <button
-              onClick={() => setActiveSection('contact')}
-              className={`flex flex-col items-center gap-1 px-2 py-1 rounded-lg transition-all duration-300 ${
-                activeSection === 'contact'
-                  ? 'dark:text-cyan-400 light:text-cyan-700'
-                  : 'dark:text-gray-500 dark:hover:text-gray-300 light:text-slate-500 light:hover:text-slate-700'
-              }`}
-            >
-              <span className={`w-1.5 h-1.5 rounded-full transition-all ${
-                activeSection === 'contact' 
-                  ? 'dark:bg-cyan-400 light:bg-cyan-600 scale-125' 
-                  : 'dark:bg-gray-600 light:bg-slate-400'
-              }`} />
-              <span className="text-[10px] font-mono uppercase tracking-wide">
-                {getTranslation(language, 'nav.contact') as string}
-              </span>
-            </button>
           </div>
           
           {/* Mobile Controls Row */}

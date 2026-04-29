@@ -6,6 +6,7 @@ import SectionContainer from './components/SectionContainer';
 import Home from './sections/Home';
 import About from './sections/About';
 import Skills from './sections/Skills';
+import Education from './sections/Education';
 import Help from './sections/Help';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
@@ -41,6 +42,11 @@ function App() {
           {activeSection === 'skills' && <Skills language={language} />}
         </SectionContainer>
 
+        {/* Education Section */}
+        <SectionContainer isActive={activeSection === 'education'}>
+          {activeSection === 'education' && <Education language={language} />}
+        </SectionContainer>
+
         {/* Help Section */}
         <SectionContainer isActive={activeSection === 'help'}>
           {activeSection === 'help' && <Help language={language} setActiveSection={setActiveSection} />}
@@ -70,7 +76,7 @@ function App() {
       {/* Subtle Footer Credit - Above navbar */}
       <footer className="fixed bottom-[72px] md:bottom-16 left-0 right-0 py-1 text-center text-[10px] font-mono pointer-events-none z-40
         dark:text-gray-700 light:text-slate-400">
-        <span className="dark:text-cyan-700/50 light:text-cyan-500/40">&lt;/&gt;</span> React + Tailwind
+        <span className="dark:text-cyan-700/50 light:text-cyan-500/40">©</span> Copyright 2026 Mohamed Essam
       </footer>
     </div>
   );

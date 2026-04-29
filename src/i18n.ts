@@ -10,6 +10,7 @@ export const translations = {
       home: 'Home',
       about: 'About',
       skills: 'Skills',
+      education: 'Education / Experience',
       help: 'Help',
       projects: 'Projects',
       contact: 'Contact',
@@ -42,6 +43,9 @@ export const translations = {
       supporting: ['C++', 'Software Development', 'Problem Solving'],
       soft: ['English Communication', 'Teamwork', 'Emotional Intelligence'],
       additionalText: 'Basic knowledge of security concepts and Linux environments',
+    },
+    education: {
+      title: 'Education / Experience',
     },
     // Help Section
     help: {
@@ -96,6 +100,7 @@ export const translations = {
       home: 'الرئيسية',
       about: 'عني',
       skills: 'المهارات',
+      education: 'التعليم / الخبرات',
       help: 'المساعدة',
       projects: 'المشاريع',
       contact: 'تواصل',
@@ -128,6 +133,9 @@ export const translations = {
       supporting: ['C++', 'تطوير البرمجيات', 'حل المشكلات'],
       soft: ['التواصل بالإنجليزية', 'العمل الجماعي', 'الذكاء العاطفي'],
       additionalText: 'معرفة أساسية بمفاهيم الأمان وأنظمة Linux',
+    },
+    education: {
+      title: 'التعليم / الخبرات',
     },
     // Help Section
     help: {
@@ -182,6 +190,7 @@ export const translations = {
       home: 'Inicio',
       about: 'Sobre Mí',
       skills: 'Habilidades',
+      education: 'Educación / Experiencia',
       help: 'Ayuda',
       projects: 'Proyectos',
       contact: 'Contacto',
@@ -214,6 +223,9 @@ export const translations = {
       supporting: ['C++', 'Desarrollo de Software', 'Resolución de Problemas'],
       soft: ['Comunicación en Inglés', 'Trabajo en Equipo', 'Inteligencia Emocional'],
       additionalText: 'Conocimiento básico de conceptos de seguridad y entornos Linux',
+    },
+    education: {
+      title: 'Educación / Experiencia',
     },
     // Help Section
     help: {
