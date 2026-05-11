@@ -1,32 +1,45 @@
 # Dependencies
 node_modules/
 
-# Build output
+# Production and build output
 dist/
+build/
+.vite/
+*.tsbuildinfo
 
-# Environment files
+# Local environment files
 .env
 .env.*
 !.env.example
 
 # Logs
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
 
-# OS files
+# Package manager caches
+.npm/
+.pnpm-store/
+
+# OS metadata
 .DS_Store
 Thumbs.db
+Desktop.ini
 
 # Editors and IDEs
 .idea/
 .vscode/
+*.swp
+*.swo
 
-# TypeScript
-*.tsbuildinfo
+# Vercel local state
+.vercel/
 
-# Vite cache
-.vite/
-
-.vercel
+# Test and coverage output
+coverage/
+playwright-report/
+test-results/

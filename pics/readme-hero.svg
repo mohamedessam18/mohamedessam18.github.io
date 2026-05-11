@@ -1,0 +1,60 @@
+<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mohamed Essam portfolio preview banner</title>
+  <desc id="desc">A polished developer portfolio banner with mobile app screens, code cards, and a dark cyan visual identity.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07111f"/>
+      <stop offset="0.48" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#042f2e"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="144" y1="94" x2="1116" y2="546" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.13 0 0 0 0 0.83 0 0 0 0 0.93 0 0 0 0.35 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="640" rx="32" fill="url(#bg)"/>
+  <path d="M0 492C154 421 262 474 411 401C576 320 575 185 746 136C910 90 1054 167 1280 90V640H0V492Z" fill="#0f766e" opacity="0.18"/>
+  <path d="M0 133C134 179 251 142 390 105C553 62 711 90 860 137C1017 186 1134 173 1280 108" stroke="#22d3ee" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="1010" cy="136" r="190" fill="#22d3ee" opacity="0.08"/>
+  <circle cx="194" cy="493" r="165" fill="#34d399" opacity="0.08"/>
+
+  <g transform="translate(96 100)">
+    <rect x="0" y="0" width="478" height="338" rx="24" fill="#020617" stroke="#155e75" stroke-width="2"/>
+    <rect x="0" y="0" width="478" height="52" rx="24" fill="#0f172a"/>
+    <circle cx="28" cy="26" r="7" fill="#ef4444"/>
+    <circle cx="52" cy="26" r="7" fill="#f59e0b"/>
+    <circle cx="76" cy="26" r="7" fill="#22c55e"/>
+    <text x="28" y="104" fill="#22d3ee" font-family="Consolas, monospace" font-size="22">&lt;Portfolio /&gt;</text>
+    <text x="28" y="150" fill="#e5e7eb" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="700">Mohamed Essam</text>
+    <text x="28" y="190" fill="#34d399" font-family="Consolas, monospace" font-size="22">Flutter Developer</text>
+    <text x="28" y="230" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="19">Mobile apps, clean UI, multilingual</text>
+    <text x="28" y="260" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="19">portfolio experience, and contact flow.</text>
+    <rect x="28" y="292" width="138" height="38" rx="10" fill="#0891b2" fill-opacity="0.18" stroke="#22d3ee"/>
+    <text x="52" y="317" fill="#a5f3fc" font-family="Consolas, monospace" font-size="16">Projects</text>
+    <rect x="182" y="292" width="116" height="38" rx="10" fill="#059669" fill-opacity="0.18" stroke="#34d399"/>
+    <text x="209" y="317" fill="#bbf7d0" font-family="Consolas, monospace" font-size="16">Contact</text>
+  </g>
+
+  <g transform="translate(704 80)" filter="url(#glow)">
+    <rect x="0" y="0" width="310" height="500" rx="38" fill="#020617" stroke="url(#cyan)" stroke-width="3"/>
+    <rect x="24" y="44" width="262" height="412" rx="24" fill="#0f172a"/>
+    <circle cx="155" cy="122" r="54" fill="#082f49" stroke="#22d3ee" stroke-width="2"/>
+    <path d="M122 122C122 103.8 136.8 89 155 89C173.2 89 188 103.8 188 122C188 140.2 173.2 155 155 155C136.8 155 122 140.2 122 122Z" fill="#164e63"/>
+    <rect x="54" y="210" width="202" height="18" rx="9" fill="#22d3ee" opacity="0.85"/>
+    <rect x="54" y="246" width="162" height="14" rx="7" fill="#64748b"/>
+    <rect x="54" y="292" width="202" height="54" rx="14" fill="#0e7490" fill-opacity="0.2" stroke="#155e75"/>
+    <rect x="54" y="364" width="202" height="54" rx="14" fill="#047857" fill-opacity="0.2" stroke="#166534"/>
+  </g>
+
+  <g transform="translate(1014 332)">
+    <rect x="0" y="0" width="160" height="132" rx="18" fill="#020617" stroke="#155e75"/>
+    <text x="24" y="40" fill="#22d3ee" font-family="Consolas, monospace" font-size="16">React</text>
+    <text x="24" y="70" fill="#34d399" font-family="Consolas, monospace" font-size="16">TypeScript</text>
+    <text x="24" y="100" fill="#e5e7eb" font-family="Consolas, monospace" font-size="16">Vite</text>
+  </g>
+</svg>

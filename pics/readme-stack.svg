@@ -1,0 +1,55 @@
+<svg width="1280" height="460" viewBox="0 0 1280 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Portfolio technology stack</title>
+  <desc id="desc">Technology stack cards for React, TypeScript, Vite, Tailwind CSS, Supabase, and GitHub Pages.</desc>
+  <rect width="1280" height="460" rx="28" fill="#020617"/>
+  <text x="72" y="82" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">Built With A Focused Frontend Stack</text>
+  <text x="72" y="118" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="18">Fast local development, typed components, utility-first styling, and a lightweight deployment workflow.</text>
+
+  <g transform="translate(72 176)">
+    <rect width="168" height="160" rx="20" fill="#0f172a" stroke="#164e63"/>
+    <circle cx="84" cy="58" r="26" fill="#082f49"/>
+    <text x="44" y="66" fill="#67e8f9" font-family="Consolas, monospace" font-size="24" font-weight="700">R</text>
+    <text x="36" y="112" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">React</text>
+    <text x="36" y="138" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">UI layer</text>
+  </g>
+
+  <g transform="translate(276 176)">
+    <rect width="168" height="160" rx="20" fill="#0f172a" stroke="#1d4ed8"/>
+    <circle cx="84" cy="58" r="26" fill="#1e3a8a"/>
+    <text x="54" y="66" fill="#bfdbfe" font-family="Consolas, monospace" font-size="24" font-weight="700">TS</text>
+    <text x="22" y="112" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">TypeScript</text>
+    <text x="36" y="138" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">Type safety</text>
+  </g>
+
+  <g transform="translate(480 176)">
+    <rect width="168" height="160" rx="20" fill="#0f172a" stroke="#7c3aed"/>
+    <circle cx="84" cy="58" r="26" fill="#4c1d95"/>
+    <text x="62" y="66" fill="#ddd6fe" font-family="Consolas, monospace" font-size="24" font-weight="700">V</text>
+    <text x="50" y="112" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Vite</text>
+    <text x="36" y="138" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">Build tool</text>
+  </g>
+
+  <g transform="translate(684 176)">
+    <rect width="168" height="160" rx="20" fill="#0f172a" stroke="#0e7490"/>
+    <circle cx="84" cy="58" r="26" fill="#164e63"/>
+    <text x="54" y="66" fill="#a5f3fc" font-family="Consolas, monospace" font-size="24" font-weight="700">TW</text>
+    <text x="38" y="112" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Tailwind</text>
+    <text x="36" y="138" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">Styling</text>
+  </g>
+
+  <g transform="translate(888 176)">
+    <rect width="168" height="160" rx="20" fill="#0f172a" stroke="#059669"/>
+    <circle cx="84" cy="58" r="26" fill="#064e3b"/>
+    <text x="54" y="66" fill="#bbf7d0" font-family="Consolas, monospace" font-size="24" font-weight="700">SB</text>
+    <text x="28" y="112" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Supabase</text>
+    <text x="36" y="138" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">Contact data</text>
+  </g>
+
+  <g transform="translate(1092 176)">
+    <rect width="168" height="160" rx="20" fill="#0f172a" stroke="#334155"/>
+    <circle cx="84" cy="58" r="26" fill="#1e293b"/>
+    <text x="54" y="66" fill="#e2e8f0" font-family="Consolas, monospace" font-size="24" font-weight="700">GH</text>
+    <text x="34" y="112" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800">Pages</text>
+    <text x="36" y="138" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="14">Deployment</text>
+  </g>
+</svg>

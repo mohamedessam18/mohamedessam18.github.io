@@ -2,204 +2,159 @@
 
 <div align="center">
 
+![Mohamed Essam Portfolio](pics/readme-hero.svg)
+
 [![Live Site](https://img.shields.io/badge/Live-Portfolio-06b6d4?style=for-the-badge)](https://mohamedessam18.github.io)
 ![React](https://img.shields.io/badge/React-19-111827?style=for-the-badge&logo=react)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-1d4ed8?style=for-the-badge&logo=typescript)
 ![Vite](https://img.shields.io/badge/Vite-7-0f172a?style=for-the-badge&logo=vite)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-0f766e?style=for-the-badge&logo=tailwindcss)
 
-**A polished multilingual portfolio for Mohamed Essam, built with React, TypeScript, Vite, and Tailwind CSS.**
+**A professional multilingual portfolio for Mohamed Essam, built with React, TypeScript, Vite, Tailwind CSS, and Supabase.**
 
-Showcasing skills, projects, services, and contact details in a modern single-page experience with theme switching, animated visuals, and Supabase-powered form handling.
-
-**Status:** Proprietary personal portfolio. Source code is not open for reuse, redistribution, or commercial use without explicit written permission.
+This repository is visible for portfolio and reference purposes only. It is not open source, and all rights are reserved by Mohamed Essam.
 
 </div>
 
 ## Overview
 
-This project is a personal portfolio website for **Mohamed Essam**, focused on presenting his work as a **Flutter Developer and Software Developer student**.
+This project is Mohamed Essam's personal portfolio website. It presents his work as a Flutter Developer and Software Developer student through a polished single-page interface with responsive sections, theme switching, multilingual content, project showcases, contact links, and a Supabase-backed contact form.
 
-This repository is maintained as a **private intellectual property project in licensing terms**, even if the source is visible online. Viewing the code does not grant permission to copy, modify, redistribute, or republish it.
+The site is designed to feel fast, clean, and practical: visitors can learn who Mohamed is, review his skills and projects, download his CV, and contact him from one focused experience.
 
-The site is designed as a smooth single-page experience with section-based navigation and a strong visual identity. It highlights:
+## Live Website
 
-- Personal introduction and developer profile
-- Skills and supporting technical knowledge
-- Services and areas of help
-- Featured GitHub projects
-- Contact options and CV download
-- Multilingual support with RTL handling for Arabic
-
-## Live Demo
-
-Visit the live site here:
+Visit the production site:
 
 **[mohamedessam18.github.io](https://mohamedessam18.github.io)**
 
+## Preview
+
+![Portfolio flow](pics/readme-flow.svg)
+
 ## Features
 
-- **Single-page portfolio flow** with persistent active section state
-- **Dark and light themes** with saved user preference
-- **Multilingual interface** in English, Arabic, and Spanish
-- **RTL support** when Arabic is selected
-- **Animated hero section** with custom bubble background and profile image
-- **Projects showcase** linked to GitHub repositories
-- **Contact form integration** powered by Supabase
-- **Responsive design** optimized for desktop and mobile
-- **Bottom navigation UI** for fast section switching
-- **CV download action** directly from the contact section
+- Responsive single-page portfolio experience
+- Dark and light theme support with saved preference
+- English, Arabic, and Spanish interface content
+- RTL layout handling for Arabic
+- Animated hero section with profile image and visual background
+- Skills, education, services, projects, and contact sections
+- Supabase contact form submission flow
+- Social links for GitHub, LinkedIn, Telegram, Instagram, and email
+- CV download from the public assets folder
+- GitHub Pages deployment workflow
 
 ## Tech Stack
 
-### Core
+![Technology stack](pics/readme-stack.svg)
 
-- React 19
-- TypeScript
-- Vite
-- Tailwind CSS
-
-### UI and Utilities
-
-- Lucide React
-- Radix UI
-- shadcn-style component setup
-- localStorage-backed custom hooks
-
-### Backend Service
-
-- Supabase for contact form submissions
-
-### Deployment
-
-- GitHub Pages via `gh-pages`
+| Area | Tools |
+| --- | --- |
+| Frontend | React 19, TypeScript, Vite |
+| Styling | Tailwind CSS, shadcn-style UI primitives, Radix UI |
+| Motion and Icons | Framer Motion, Lucide React |
+| Data | Supabase contact form table |
+| Deployment | GitHub Pages, gh-pages |
 
 ## Project Structure
 
 ```text
 .
-|-- public/                 Static assets
+|-- pics/                   README images and documentation visuals
+|-- public/                 Public files, favicon, and CV
 |-- src/
-|   |-- assets/             Images and local media
+|   |-- assets/             Local image assets
 |   |-- components/         Shared UI and layout components
-|   |-- hooks/              Custom hooks for theme, language, storage
+|   |-- hooks/              Theme, language, and local storage hooks
 |   |-- lib/                Utilities and Supabase client
-|   |-- sections/           Page sections (Home, About, Skills, etc.)
-|   |-- App.tsx             Main app composition
+|   |-- sections/           Portfolio page sections
+|   |-- App.tsx             Main application composition
 |   |-- i18n.ts             Translation content and language logic
 |   |-- index.css           Global styles
-|   `-- main.tsx            App entry point
-|-- index.html
-|-- tailwind.config.js
-|-- vite.config.ts
-`-- package.json
+|   `-- main.tsx            React entry point
+|-- COPYRIGHT.md            Copyright notice
+|-- LICENSE                 Proprietary license terms
+|-- README.md               Project documentation
+|-- index.html              Vite HTML entry
+|-- package.json            Scripts and dependencies
+|-- tailwind.config.js      Tailwind configuration
+`-- vite.config.ts          Vite configuration
 ```
 
 ## Getting Started
 
-### 1. Clone the repository
+This setup is intended for Mohamed Essam and explicitly authorized collaborators.
+
+### Prerequisites
+
+- Node.js 20 or newer
+- npm
+- Supabase project credentials for the contact form
+
+### Installation
 
 ```bash
 git clone https://github.com/mohamedessam18/mohamedessam18.github.io.git
 cd mohamedessam18.github.io
-```
-
-This setup is intended for the project owner or explicitly authorized collaborators only.
-
-### 2. Install dependencies
-
-```bash
 npm install
 ```
 
-### 3. Configure environment variables
+### Environment Variables
 
-Create a `.env.local` file in the project root and add:
+Create a `.env.local` file in the project root:
 
 ```env
 VITE_SUPABASE_URL=your_supabase_project_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-These values are required for the contact form integration.
-
-### 4. Start the development server
-
-```bash
-npm run dev
-```
-
-### 5. Build for production
-
-```bash
-npm run build
-```
-
-### 6. Preview the production build
-
-```bash
-npm run preview
-```
-
-## Available Scripts
-
-```bash
-npm run dev        # Start local Vite dev server
-npm run build      # Type-check and build for production
-npm run preview    # Preview the production build locally
-npm run deploy     # Deploy dist/ to GitHub Pages
-```
-
-## Deployment
-
-This portfolio is configured for **GitHub Pages** deployment.
-
-To publish the site:
-
-```bash
-npm run deploy
-```
-
-The deployment flow builds the app first using `predeploy`, then publishes the `dist/` directory.
-
-## Portfolio Sections
-
-- **Home**: Intro, profile image, animated background, and call-to-action buttons
-- **About**: Personal summary and career focus
-- **Skills**: Core, supporting, and soft skills
-- **Help**: Services Mohamed can help with
-- **Projects**: Selected portfolio work with GitHub links
-- **Contact**: Contact form, social links, and CV download
-
-## Localization
-
-The portfolio supports three languages:
-
-- English
-- Arabic
-- Spanish
-
-Arabic automatically switches the page direction to **RTL** for a better reading experience.
-
-## Contact Data Flow
-
-The contact form sends `name` and `email` to a Supabase table:
+The contact form expects a Supabase table named:
 
 ```text
 contact_messages
 ```
 
-Make sure your Supabase project includes that table and allows inserts for the portfolio to receive submissions correctly.
+The current form writes `name` and `email` values to that table.
 
-## Why This README Is Different
+## Available Scripts
 
-This is not a default Vite starter anymore. The project is now documented as a real portfolio product with:
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Type-check and build the production bundle |
+| `npm run preview` | Preview the production build locally |
+| `npm run deploy` | Publish the built site to GitHub Pages |
 
-- Accurate project purpose
-- Clear feature breakdown
-- Setup and deployment instructions
-- Environment variable guidance
-- Better structure and presentation
+## Deployment
+
+The app is configured for GitHub Pages through the `homepage` field in `package.json` and the `gh-pages` deployment script.
+
+```bash
+npm run deploy
+```
+
+The `predeploy` script runs the production build before publishing the `dist/` folder.
+
+## Portfolio Sections
+
+| Section | Purpose |
+| --- | --- |
+| Home | Introduction, profile image, and primary calls to action |
+| About | Personal summary, goals, and developer highlights |
+| Skills | Core, supporting, soft skills, and additional knowledge |
+| Education / Experience | Education and growth context |
+| Help | Services Mohamed can provide with Flutter projects |
+| Projects | Featured GitHub projects and technology tags |
+| Contact | Contact form, social links, email, and CV download |
+
+## Ownership And License
+
+This project is proprietary and not open source.
+
+Copyright (c) 2026 Mohamed Essam. All rights reserved. No part of this source code, design, content, images, documentation, or assets may be copied, modified, distributed, sublicensed, published, sold, reused, or used commercially without prior written permission.
+
+See [LICENSE](LICENSE) and [COPYRIGHT.md](COPYRIGHT.md) for the full ownership and usage terms.
 
 ## Author
 
@@ -207,12 +162,6 @@ This is not a default Vite starter anymore. The project is now documented as a r
 
 - GitHub: [@mohamedessam18](https://github.com/mohamedessam18)
 - LinkedIn: [mohammedessam2](https://www.linkedin.com/in/mohammedessam2)
+- Telegram: [@mohvmedesam20](https://t.me/mohvmedesam20)
+- Instagram: [@mohvmedesam20](https://www.instagram.com/mohvmedesam20)
 - Email: [mohvmedesam@gmail.com](mailto:mohvmedesam@gmail.com)
-
-## License
-
-This project is **not open source**.
-
-All rights are reserved by **Mohamed Essam**. No part of this source code, design, content, or assets may be copied, modified, distributed, sublicensed, published, used commercially, or reused in derivative works without prior written permission.
-
-See [LICENSE](LICENSE) for the full terms.
