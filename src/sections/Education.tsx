@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { getTranslation } from '../i18n';
 import type { Language } from '../i18n';
 import {
@@ -9,6 +10,7 @@ import {
   Layers,
   School,
 } from 'lucide-react';
+import mtiLogo from '../assets/mti-logo.jpg';
 
 interface EducationProps {
   language: Language;
@@ -135,110 +137,134 @@ const educationContent: Record<Language, EducationContent> = {
   },
 };
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+} as const;
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: 'spring', stiffness: 100, damping: 15 }
+  }
+} as const;
+
 const Education = ({ language }: EducationProps) => {
   const t = (key: string) => getTranslation(language, key);
   const content = educationContent[language];
 
   return (
     <div className="min-h-screen pt-16 pb-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-mono font-bold mb-12 text-center dark:text-white light:text-slate-800">
-          <span className="dark:text-cyan-400 light:text-cyan-600">&lt;</span>
+      <motion.div
+        className="max-w-6xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.h2 variants={itemVariants} className="text-3xl sm:text-4xl font-mono font-bold mb-12 text-center dark:text-white text-slate-800">
+          <span className="dark:text-cyan-400 text-cyan-600">&lt;</span>
           {t('education.title') as string}
-          <span className="dark:text-cyan-400 light:text-cyan-600">/&gt;</span>
-        </h2>
+          <span className="dark:text-cyan-400 text-cyan-600">/&gt;</span>
+        </motion.h2>
 
         <div className="grid lg:grid-cols-[0.95fr_1.4fr] gap-6">
           <section className="space-y-6">
-            <div className="p-6 rounded-lg border dark:bg-cyan-500/10 dark:border-cyan-500/30 light:bg-cyan-50/70 light:border-cyan-300/40">
+            <motion.div variants={itemVariants} className="p-6 rounded-lg border dark:bg-cyan-500/10 dark:border-cyan-500/30 bg-cyan-50/70 border-cyan-300/40">
               <div className="flex items-start gap-4">
-                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg border font-mono dark:bg-black/40 dark:border-cyan-500/30 light:bg-white/80 light:border-cyan-300/50">
-                  <div className="text-center leading-none">
-                    <div className="text-2xl font-black dark:text-cyan-400 light:text-blue-700">MTI</div>
-                    <div className="mt-1 h-1 w-10 mx-auto rounded-full dark:bg-emerald-400 light:bg-emerald-600" />
-                  </div>
+                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg border dark:border-cyan-500/30 bg-white dark:bg-black/40 border-cyan-300/50 overflow-hidden">
+                  <img
+                    src={mtiLogo}
+                    alt="MTI University Logo"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
 
                 <div>
-                  <p className="mb-2 flex items-center gap-2 text-sm font-mono dark:text-cyan-400 light:text-cyan-700">
+                  <p className="mb-2 flex items-center gap-2 text-sm font-mono dark:text-cyan-400 text-cyan-700">
                     <School size={16} />
                     {content.universityLabel}
                   </p>
-                  <h3 className="text-2xl font-mono font-bold dark:text-white light:text-slate-800">
+                  <h3 className="text-2xl font-mono font-bold dark:text-white text-slate-800">
                     {content.universityName}
                   </h3>
-                  <p className="mt-2 text-sm dark:text-gray-400 light:text-slate-600">{content.summary}</p>
+                  <p className="mt-2 text-sm dark:text-gray-400 text-slate-600">{content.summary}</p>
                 </div>
               </div>
 
               <div className="mt-6 grid sm:grid-cols-2 gap-3">
-                <div className="p-4 rounded border dark:bg-black/30 dark:border-gray-700/50 light:bg-white/60 light:border-slate-300/50">
-                  <GraduationCap size={20} className="mb-3 dark:text-green-400 light:text-emerald-600" />
-                  <p className="text-xs font-mono uppercase dark:text-gray-500 light:text-slate-500">{content.degreeLabel}</p>
-                  <p className="mt-1 font-mono dark:text-gray-200 light:text-slate-800">{content.degree}</p>
+                <div className="p-4 rounded border dark:bg-black/30 dark:border-gray-700/50 bg-white/60 border-slate-300/50">
+                  <GraduationCap size={20} className="mb-3 dark:text-green-400 text-emerald-600" />
+                  <p className="text-xs font-mono uppercase dark:text-gray-500 text-slate-500">{content.degreeLabel}</p>
+                  <p className="mt-1 font-mono dark:text-gray-200 text-slate-800">{content.degree}</p>
                 </div>
 
-                <div className="p-4 rounded border dark:bg-black/30 dark:border-gray-700/50 light:bg-white/60 light:border-slate-300/50">
-                  <Calendar size={20} className="mb-3 dark:text-purple-400 light:text-violet-600" />
-                  <p className="text-xs font-mono uppercase dark:text-gray-500 light:text-slate-500">{content.dateLabel}</p>
-                  <p className="mt-1 font-mono dark:text-gray-200 light:text-slate-800">2023 - 2027</p>
+                <div className="p-4 rounded border dark:bg-black/30 dark:border-gray-700/50 bg-white/60 border-slate-300/50">
+                  <Calendar size={20} className="mb-3 dark:text-purple-400 text-violet-600" />
+                  <p className="text-xs font-mono uppercase dark:text-gray-500 text-slate-500">{content.dateLabel}</p>
+                  <p className="mt-1 font-mono dark:text-gray-200 text-slate-800">2023 - 2027</p>
                 </div>
               </div>
 
-              <div className="mt-6 p-4 rounded border dark:bg-black/30 dark:border-gray-700/50 light:bg-white/60 light:border-slate-300/50">
-                <p className="flex items-center gap-2 text-sm font-mono font-bold dark:text-gray-300 light:text-slate-700">
-                  <Layers size={18} className="dark:text-cyan-400 light:text-cyan-700" />
+              <div className="mt-6 p-4 rounded border dark:bg-black/30 dark:border-gray-700/50 bg-white/60 border-slate-300/50">
+                <p className="flex items-center gap-2 text-sm font-mono font-bold dark:text-gray-300 text-slate-700">
+                  <Layers size={18} className="dark:text-cyan-400 text-cyan-700" />
                   {content.focusTitle}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed dark:text-gray-400 light:text-slate-600">{content.focusText}</p>
+                <p className="mt-3 text-sm leading-relaxed dark:text-gray-400 text-slate-600">{content.focusText}</p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="p-6 rounded-lg border dark:bg-green-500/10 dark:border-green-500/30 light:bg-emerald-50/70 light:border-emerald-300/40">
-              <p className="flex items-center gap-2 text-sm font-mono font-bold dark:text-green-400 light:text-emerald-700">
+            <motion.div variants={itemVariants} className="p-6 rounded-lg border dark:bg-green-500/10 dark:border-green-500/30 bg-emerald-50/70 border-emerald-300/40">
+              <p className="flex items-center gap-2 text-sm font-mono font-bold dark:text-green-400 text-emerald-700">
                 <BriefcaseBusiness size={18} />
                 {content.experienceTitle}
               </p>
-              <h3 className="mt-4 font-mono text-xl font-bold dark:text-white light:text-slate-800">{content.experience.role}</h3>
-              <p className="mt-1 text-sm font-mono dark:text-cyan-400 light:text-cyan-700">{content.experience.organization}</p>
-              <p className="mt-1 text-xs font-mono uppercase dark:text-gray-500 light:text-slate-500">{content.experience.type}</p>
-              <p className="mt-3 flex items-center gap-2 text-sm dark:text-gray-400 light:text-slate-600">
-                <Calendar size={16} className="dark:text-purple-400 light:text-violet-600" />
+              <h3 className="mt-4 font-mono text-xl font-bold dark:text-white text-slate-800">{content.experience.role}</h3>
+              <p className="mt-1 text-sm font-mono dark:text-cyan-400 text-cyan-700">{content.experience.organization}</p>
+              <p className="mt-1 text-xs font-mono uppercase dark:text-gray-500 text-slate-500">{content.experience.type}</p>
+              <p className="mt-3 flex items-center gap-2 text-sm dark:text-gray-400 text-slate-600">
+                <Calendar size={16} className="dark:text-purple-400 text-violet-600" />
                 {content.experience.date}
               </p>
               <div className="mt-4 space-y-2">
                 {content.experience.highlights.map((highlight) => (
-                  <div key={highlight} className="flex items-start gap-2 text-sm leading-relaxed dark:text-gray-400 light:text-slate-600">
-                    <CheckCircle2 size={15} className="mt-0.5 shrink-0 dark:text-green-400 light:text-emerald-600" />
+                  <div key={highlight} className="flex items-start gap-2 text-sm leading-relaxed dark:text-gray-400 text-slate-600">
+                    <CheckCircle2 size={15} className="mt-0.5 shrink-0 dark:text-green-400 text-emerald-600" />
                     <span>{highlight}</span>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </section>
 
           <section className="space-y-4">
             {content.courseLevels.map((level) => (
-              <div
+              <motion.div
+                variants={itemVariants}
                 key={level.level}
-                className="p-5 rounded-lg border transition-all duration-300 dark:bg-gray-900/50 dark:border-gray-700/50 dark:hover:border-cyan-500/40 light:bg-white/70 light:border-slate-300/50 light:hover:border-cyan-400/60 light:shadow-sm"
+                className="p-5 rounded-lg border transition-all duration-300 dark:bg-gray-900/50 dark:border-gray-700/50 dark:hover:border-cyan-500/40 bg-white/70 border-slate-300/50 hover:border-cyan-400/60 shadow-sm"
               >
-                <h3 className="mb-4 flex items-center gap-2 font-mono text-lg font-bold dark:text-cyan-400 light:text-cyan-700">
+                <h3 className="mb-4 flex items-center gap-2 font-mono text-lg font-bold dark:text-cyan-400 text-cyan-700">
                   <BookOpen size={20} />
                   {level.level} {content.coursesSuffix}
                 </h3>
                 <div className="grid sm:grid-cols-2 gap-2">
                   {level.courses.map((course) => (
-                    <div key={course} className="rounded px-3 py-2 text-sm dark:bg-black/30 dark:text-gray-300 light:bg-slate-50 light:text-slate-700">
+                    <div key={course} className="rounded px-3 py-2 text-sm dark:bg-black/30 dark:text-gray-300 bg-slate-50 text-slate-700">
                       {course}
                     </div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </section>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

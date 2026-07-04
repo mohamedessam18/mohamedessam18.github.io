@@ -1,44 +1,31 @@
-import { useEffect, useState, type ReactNode } from 'react';
+import { motion } from 'framer-motion';
+import type { ReactNode } from 'react';
 
 interface SectionContainerProps {
   children: ReactNode;
-  isActive: boolean;
 }
 
-// Section container with smooth fade/slide transitions
-const SectionContainer = ({ children, isActive }: SectionContainerProps) => {
-  const [shouldRender, setShouldRender] = useState(isActive);
-  const [animationClass, setAnimationClass] = useState('');
-
-  useEffect(() => {
-    if (isActive) {
-      setShouldRender(true);
-      // Small delay to ensure DOM is ready before animating in
-      const timer = setTimeout(() => {
-        setAnimationClass('opacity-100 translate-x-0');
-      }, 50);
-      return () => clearTimeout(timer);
-    } else {
-      setAnimationClass('opacity-0 translate-x-8');
-      // Delay unmounting to allow exit animation
-      const timer = setTimeout(() => {
-        setShouldRender(false);
-      }, 300);
-      return () => clearTimeout(timer);
-    }
-  }, [isActive]);
-
-  if (!shouldRender) return null;
-
+// Section container with smooth Framer Motion page transitions
+const SectionContainer = ({ children }: SectionContainerProps) => {
   return (
-    <div
-      className={`absolute inset-0 transition-all duration-300 ease-out ${animationClass}`}
+    <motion.div
+      initial={{ opacity: 0, y: 60, scale: 0.96 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: false, amount: 0.12 }}
+      transition={{ 
+        type: 'spring',
+        stiffness: 55, 
+        damping: 18, 
+        mass: 0.9,
+        restDelta: 0.001
+      }}
+      className="relative w-full"
       style={{
         willChange: 'opacity, transform',
       }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
